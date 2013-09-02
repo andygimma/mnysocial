@@ -6,6 +6,9 @@ MnySocial::Application.routes.draw do
   get "main_pages/signin"
 
   get "main_pages/signup"
+  
+  match '/', to: 'main_pages#home'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
