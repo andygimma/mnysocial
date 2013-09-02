@@ -1,13 +1,28 @@
+#
+# Developer : Andy Gimma (andy.n.gimma@gmail.com)
+# Date : 08/14/13
+# All code (c)2013 Andy Gimma all rights reserved
+#-
+
+
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
 
+gem 'paper_trail'
+gem 'rails', '3.2.13'
+# gem 'omniauth'
+# gem 'omniauth-password'
+gem 'geocoder'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
-
+group :development, :test do
+#   gem 'factory_girl_rails', '1.4.0'
+  gem 'sqlite3', '1.3.5'
+end
+group :production do
+  gem 'pg', '0.12.2'
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,7 +38,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
