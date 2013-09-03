@@ -1,4 +1,10 @@
 MnySocial::Application.routes.draw do
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  get "sessions/failure"
+
   get "main_pages/home"
 
   get "main_pages/about"
@@ -7,8 +13,14 @@ MnySocial::Application.routes.draw do
 
   get "main_pages/signup"
   
-  match '/', to: 'main_pages#home'
+  match '/', to: "main_pages#home"
+  match '/signin', to: "main_pages#signin"
+  match '/signup', to: "main_pages#signup"
 
+  
+  match "/auth/:provider/callback", to: "sessions#create"
+  match "/auth/failure", to: "sessions#failure"
+  match "/logout", to: "sessions#destroy", :as => "logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

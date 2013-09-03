@@ -9,5 +9,6 @@ class MainPagesController < ApplicationController
   end
 
   def signup
+    @identity = env['omniauth.identity']
   end
 end
